@@ -26,6 +26,10 @@ export function DeleteCustomDNSServer(arg1) {
   return window['go']['main']['App']['DeleteCustomDNSServer'](arg1);
 }
 
+export function FindFastestDNS(arg1) {
+  return window['go']['main']['App']['FindFastestDNS'](arg1);
+}
+
 export function FlushDNSCache() {
   return window['go']['main']['App']['FlushDNSCache']();
 }

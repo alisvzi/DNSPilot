@@ -1,3 +1,24 @@
+export namespace benchmark {
+	
+	export class Result {
+	    ServerIP: string;
+	    Latency: number;
+	    Success: boolean;
+	
+	    static createFrom(source: any = {}) {
+	        return new Result(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.ServerIP = source["ServerIP"];
+	        this.Latency = source["Latency"];
+	        this.Success = source["Success"];
+	    }
+	}
+
+}
+
 export namespace models {
 	
 	export class BenchmarkProfile {
