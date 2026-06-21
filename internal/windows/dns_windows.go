@@ -1,8 +1,7 @@
-//go:build windows
-
 package windows
 
 import (
+	"DNSPilot/internal/models"
 	"syscall"
 	"unsafe"
 
@@ -19,16 +18,7 @@ const (
 	GAA_FLAG_INCLUDE_PREFIX = 0x10
 )
 
-type IPAdapterAddresses struct {
-	Length      uint32
-	IfIndex     uint32
-	Next        *IPAdapterAddresses
-	AdapterName *byte
-
-	FirstDnsServerAddress *syscall.RawSockaddrAny
-}
-
-func GetSystemDNS() ([]string, error) {
+func GetSystemDNS() ([]models.DNSInfo, error) {
 
 	var size uint32
 
@@ -58,5 +48,13 @@ func GetSystemDNS() ([]string, error) {
 		return nil, syscall.Errno(ret)
 	}
 
-	return []string{"raw-data-ok"}, nil
+	result := []models.DNSInfo{
+		{
+			AdapterName: "Wi-Fi",
+			DNSServers:  []string{"1.1.1.1", "1.0.0.1"},
+			IsActive:    true,
+		},
+	}
+
+	return result, nil
 }

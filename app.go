@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 
+	"DNSPilot/internal/models"
 	"DNSPilot/internal/services"
 )
 
@@ -22,6 +23,6 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-func (a *App) GetSystemDNS() ([]string, error) {
+func (a *App) GetSystemDNS() ([]models.DNSInfo, error) {
 	return a.dnsService.GetSystemDNS()
 }
