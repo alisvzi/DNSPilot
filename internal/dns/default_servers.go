@@ -3,39 +3,70 @@ package dns
 import "DNSPilot/internal/models"
 
 func DefaultServers() []models.DNSServer {
-
 	return []models.DNSServer{
-
 		{
 			ID:            "cloudflare",
 			Name:          "Cloudflare",
 			PrimaryIPv4:   "1.1.1.1",
 			SecondaryIPv4: "1.0.0.1",
+			PrimaryIPv6:   "2606:4700:4700::1111",
+			SecondaryIPv6: "2606:4700:4700::1001",
 			Provider:      "Cloudflare",
-			Description:   "Fast public DNS",
+			Description:   "Fast public DNS with privacy focus",
 			Category:      models.PublicDNS,
+			Tags:          []string{"fast", "public", "privacy"},
 			Enabled:       true,
 		},
-
 		{
 			ID:            "google",
 			Name:          "Google DNS",
 			PrimaryIPv4:   "8.8.8.8",
 			SecondaryIPv4: "8.8.4.4",
+			PrimaryIPv6:   "2001:4860:4860::8888",
+			SecondaryIPv6: "2001:4860:4860::8844",
 			Provider:      "Google",
-			Description:   "Google Public DNS",
+			Description:   "Reliable public DNS",
 			Category:      models.PublicDNS,
+			Tags:          []string{"stable", "public"},
 			Enabled:       true,
 		},
-
 		{
 			ID:            "quad9",
 			Name:          "Quad9",
 			PrimaryIPv4:   "9.9.9.9",
 			SecondaryIPv4: "149.112.112.112",
+			PrimaryIPv6:   "2620:fe::fe",
+			SecondaryIPv6: "2620:fe::9",
 			Provider:      "Quad9",
-			Description:   "Secure DNS",
+			Description:   "Secure DNS with malware blocking",
 			Category:      models.SecureDNS,
+			Tags:          []string{"secure", "blocking"},
+			Enabled:       true,
+		},
+		{
+			ID:            "adguard",
+			Name:          "AdGuard DNS",
+			PrimaryIPv4:   "94.140.14.14",
+			SecondaryIPv4: "94.140.15.15",
+			PrimaryIPv6:   "2a10:50c0::ad1:ff",
+			SecondaryIPv6: "2a10:50c0::ad2:ff",
+			Provider:      "AdGuard",
+			Description:   "Privacy and ad blocking DNS",
+			Category:      models.PrivacyDNS,
+			Tags:          []string{"privacy", "adblock"},
+			Enabled:       true,
+		},
+		{
+			ID:            "opendns",
+			Name:          "OpenDNS",
+			PrimaryIPv4:   "208.67.222.222",
+			SecondaryIPv4: "208.67.220.220",
+			PrimaryIPv6:   "2620:119:35::35",
+			SecondaryIPv6: "2620:119:53::53",
+			Provider:      "OpenDNS",
+			Description:   "Popular public DNS",
+			Category:      models.PublicDNS,
+			Tags:          []string{"public"},
 			Enabled:       true,
 		},
 	}

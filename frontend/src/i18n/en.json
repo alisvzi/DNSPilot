@@ -1,0 +1,12 @@
+{
+  "title": "DNSPilot",
+  "subtitle": "DNS benchmark and switcher",
+  "currentDns": "Current DNS",
+  "networkAdapters": "Network Adapters",
+  "defaultDns": "Default DNS Providers",
+  "benchmark": "Benchmark",
+  "settings": "Settings",
+  "language": "Language",
+  "farsi": "Farsi",
+  "english": "English"
+}

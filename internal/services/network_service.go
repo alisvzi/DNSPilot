@@ -13,31 +13,21 @@ func NewNetworkService() *NetworkService {
 }
 
 func (s *NetworkService) GetAdapters() ([]models.NetworkAdapter, error) {
-
-	var adapters []models.NetworkAdapter
-
 	interfaces, err := net.Interfaces()
-
 	if err != nil {
 		return nil, err
 	}
 
+	adapters := make([]models.NetworkAdapter, 0, len(interfaces))
+
 	for _, iface := range interfaces {
-
-		addrs, _ := iface.Addrs()
-
 		var ipv4 string
 
+		addrs, _ := iface.Addrs()
 		for _, addr := range addrs {
-
-			if ipnet, ok := addr.(*net.IPNet); ok {
-
-				if ipnet.IP.To4() != nil {
-
-					ipv4 = ipnet.IP.String()
-
-					break
-				}
+			if ipnet, ok := addr.(*net.IPNet); ok && ipnet.IP.To4() != nil {
+				ipv4 = ipnet.IP.String()
+				break
 			}
 		}
 

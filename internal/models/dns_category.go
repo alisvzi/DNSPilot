@@ -7,5 +7,6 @@ const (
 	PrivacyDNS DNSCategory = "privacy"
 	SecureDNS  DNSCategory = "secure"
 	FamilyDNS  DNSCategory = "family"
+	GamingDNS  DNSCategory = "gaming"
 	CustomDNS  DNSCategory = "custom"
 )
