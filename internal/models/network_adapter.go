@@ -1,8 +1,13 @@
 package models
 
 type NetworkAdapter struct {
-	ID          string `json:"id"`
-	Name        string `json:"name"`
+	ID string `json:"id"`
+
+	Name string `json:"name"`
+
 	Description string `json:"description"`
-	Status      string `json:"status"`
+
+	DNSServers []string `json:"dns_servers"`
+
+	IsUp bool `json:"is_up"`
 }
