@@ -1,32 +1,21 @@
 import { useEffect, useState } from "react";
-
-import { GetNetworkAdapters } from "../wailsjs/go/main/App";
-
-import { TestDNSRead } from "../wailsjs/go/main/App";
+import { GetSystemDNS } from "../wailsjs/go/main/App";
 
 function App() {
-  const [adapters, setAdapters] = useState<any[]>([]);
+  const [dns, setDns] = useState<string[]>([]);
 
   useEffect(() => {
-    GetNetworkAdapters().then(setAdapters).catch(console.error);
-  }, []);
-
-  useEffect(() => {
-    TestDNSRead().then(console.log).catch(console.error);
+    GetSystemDNS().then(setDns).catch(console.error);
   }, []);
 
   return (
-    <div>
+    <div style={{ padding: 20 }}>
       <h1>DNSPilot</h1>
 
-      <h2>Network Adapters</h2>
+      <h2>System DNS</h2>
 
-      {adapters.map((adapter) => (
-        <div key={adapter.id}>
-          <strong>{adapter.name}</strong>
-
-          <div>{adapter.ipv4}</div>
-        </div>
+      {dns.map((d, i) => (
+        <div key={i}>{d}</div>
       ))}
     </div>
   );
