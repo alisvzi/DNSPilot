@@ -9,3 +9,7 @@ export function GetDefaultDNS() {
 export function GetNetworkAdapters() {
   return window['go']['main']['App']['GetNetworkAdapters']();
 }
+
+export function TestDNSRead() {
+  return window['go']['main']['App']['TestDNSRead']();
+}

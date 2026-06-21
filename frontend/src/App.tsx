@@ -2,11 +2,17 @@ import { useEffect, useState } from "react";
 
 import { GetNetworkAdapters } from "../wailsjs/go/main/App";
 
+import { TestDNSRead } from "../wailsjs/go/main/App";
+
 function App() {
   const [adapters, setAdapters] = useState<any[]>([]);
 
   useEffect(() => {
     GetNetworkAdapters().then(setAdapters).catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    TestDNSRead().then(console.log).catch(console.error);
   }, []);
 
   return (
