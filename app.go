@@ -5,7 +5,6 @@ import (
 	"database/sql"
 	"log"
 
-	"DNSPilot/internal/benchmark"
 	"DNSPilot/internal/dns"
 	"DNSPilot/internal/models"
 	"DNSPilot/internal/services"
@@ -118,16 +117,4 @@ func (a *App) DeleteCustomDNSServer(serverID string) error {
 
 func (a *App) DeleteCustomDNSList(id string) error {
 	return a.listService.DeleteCustomDNSList(id)
-}
-
-func (a *App) FindFastestDNS(
-	servers []string,
-) ([]benchmark.Result, error) {
-
-	_, results :=
-		benchmark.FindFastestDNS(
-			servers,
-		)
-
-	return results, nil
 }
