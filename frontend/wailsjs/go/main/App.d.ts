@@ -3,3 +3,5 @@
 import {models} from '../models';
 
 export function GetDefaultDNS():Promise<Array<models.DNSServer>>;
+
+export function GetNetworkAdapters():Promise<Array<models.NetworkAdapter>>;

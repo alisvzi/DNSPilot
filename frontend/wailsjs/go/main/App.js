@@ -5,3 +5,7 @@
 export function GetDefaultDNS() {
   return window['go']['main']['App']['GetDefaultDNS']();
 }
+
+export function GetNetworkAdapters() {
+  return window['go']['main']['App']['GetNetworkAdapters']();
+}

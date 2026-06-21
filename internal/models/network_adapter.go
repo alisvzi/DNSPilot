@@ -7,6 +7,12 @@ type NetworkAdapter struct {
 
 	Description string `json:"description"`
 
+	MAC string `json:"mac"`
+
+	IPv4 string `json:"ipv4"`
+
+	Gateway string `json:"gateway"`
+
 	DNSServers []string `json:"dns_servers"`
 
 	IsUp bool `json:"is_up"`

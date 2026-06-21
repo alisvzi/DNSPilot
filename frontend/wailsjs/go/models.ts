@@ -26,6 +26,32 @@ export namespace models {
 	        this.enabled = source["enabled"];
 	    }
 	}
+	export class NetworkAdapter {
+	    id: string;
+	    name: string;
+	    description: string;
+	    mac: string;
+	    ipv4: string;
+	    gateway: string;
+	    dns_servers: string[];
+	    is_up: boolean;
+	
+	    static createFrom(source: any = {}) {
+	        return new NetworkAdapter(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.id = source["id"];
+	        this.name = source["name"];
+	        this.description = source["description"];
+	        this.mac = source["mac"];
+	        this.ipv4 = source["ipv4"];
+	        this.gateway = source["gateway"];
+	        this.dns_servers = source["dns_servers"];
+	        this.is_up = source["is_up"];
+	    }
+	}
 
 }
 
